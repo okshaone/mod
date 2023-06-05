@@ -7,8 +7,12 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_missed','./assets/wawa.m4a');
+        this.load.audio('audioKey','./assets/haha.mp3');
       }
     create() {
+      this.audio = this.sound.add('audioKey');
+      this.audio.play();
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -37,6 +41,7 @@ keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
           // easy mode
           game.settings = {
             spaceshipSpeed: 3,
+            betterSpaceshipSpeed: 5,
             gameTimer: 60000    
           }
           this.sound.play('sfx_select');
@@ -46,6 +51,7 @@ keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
           // hard mode
           game.settings = {
             spaceshipSpeed: 4,
+            betterSpaceshipSpeed: 7,
             gameTimer: 45000    
           }
           this.sound.play('sfx_select');
